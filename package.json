@@ -1,0 +1,53 @@
+{
+  "name": "best-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-1": "node scraper.js --otp Rakan --enemies Viego Brand Hwei Aphelios Pyke"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^14.0.0",
+    "papaparse": "^5.5.3",
+    "playwright": "^1.55.0"
+  },
+  "devDependencies": {
+    "electron": "^37.3.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.mojaapka.desktop",
+    "files": [
+      "main.js",
+      "renderer.js",
+      "scraper.js",
+      "preload.js",
+      "package.json",
+      "index.html",
+      "styles.css",
+      "node_modules/playwright/.local-browsers/**/*"
+    ],
+    "productName": "Best Build Finder",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
